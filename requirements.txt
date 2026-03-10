@@ -1,0 +1,15 @@
+# Podstawowa obróbka danych
+pandas
+numpy
+
+# Uczenie Maszynowe i Metryki
+scikit-learn
+xgboost
+
+# Redukcja wymiarowości i Klastrowanie
+umap-learn
+hdbscan
+
+# Wizualizacja danych
+matplotlib
+seaborn

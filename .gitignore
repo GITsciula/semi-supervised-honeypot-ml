@@ -1,0 +1,8 @@
+# Ignoruj ciężkie dane surowe
+dane/treningowe/*.csv
+dane/testowe/*.csv
+
+# Ignoruj pliki tymczasowe Python i Jupyter
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
