@@ -32,7 +32,7 @@ Projekt wykorzystuje dane z systemu Hornet:40. Aby zachować spójność ścież
   └── /gotowe_ml      <-- Miejsce zapisu wygenerowanego Ground Truth dla klasyfikatora
 ```
 ### Uwaga: Ze względu na limity rozmiaru plików w serwisie GitHub, w repozytorium znajdują się jedynie reprezentatywne próbki danych. Pełne zestawy danych należy pobrać z oficjalnych źródeł projektu Hornet: 40 i umieścić w odpowiednich podfolderach katalogu /dane/.
-
+### Update: Po zwiększeniu ilości danych treningowych i testowych katalog *'dane'* jest pusty pełna jego zawartość znajduję się na Google Drive pod linkiem: https://drive.google.com/drive/folders/1_SH2xF-vRWyT3P-55jVr8AbIZdpj-8Lv?usp=sharing
 ### 3. Kolejność uruchamiania (Pipeline Badawczy)
 
 Badania są podzielone na logiczne etapy. Proszę uruchamiać notatniki w podanej kolejności:
