@@ -27,8 +27,9 @@ Projekt wykorzystuje dane z systemu Hornet:40. Aby zachować spójność ścież
 
 ```text
 /dane
-  ├── /treningowe     <-- Surowe pliki .csv (np. 7 dni z pierwszego tygodnia zbierania logów z jednej geolokalizacji )
-  ├── /testowe        <-- Surowe pliki .csv z kolejnych okresów (np. 4 dni z kolejnego tygodnia)
+  ├── /treningowe     <-- Surowe pliki .csv (np. 14 dni z pierwszego tygodnia zbierania logów z jednej geolokalizacji)
+  ├── /testowe_A       <-- Surowe pliki .csv z kolejnych okresów z tej samej geolokalizacji (np. 7 dni z kolejnego tygodnia)
+  ├── /testowe_B       <-- Surowe pliki .csv z innnej geolokalizacji (np. geo-7 (Azja))
   └── /gotowe_ml      <-- Miejsce zapisu wygenerowanego Ground Truth dla klasyfikatora
 ```
 ### Uwaga: Ze względu na limity rozmiaru plików w serwisie GitHub, w repozytorium znajdują się jedynie reprezentatywne próbki danych. Pełne zestawy danych należy pobrać z oficjalnych źródeł projektu Hornet: 40 i umieścić w odpowiednich podfolderach katalogu /dane/.
@@ -39,25 +40,27 @@ Badania są podzielone na logiczne etapy. Proszę uruchamiać notatniki w podane
 
 1. **`01_KMeans_Baseline.ipynb`**
    * Wczytanie danych surowych, czyszczenie i inżynieria cech.
-   * Zastosowanie modelu bazowego (Baseline) K-Means oraz nieliniowej redukcji wymiarowości UMAP w celu przygotowania danych.
+   * Zastosowanie modelu bazowego (Baseline) K-Means oraz liniowej redukcji wymiarowości PCA w celu przygotowania danych.
 
 
 2. **`02_HDBSCAN.ipynb`**
-   * Wykorzystanie algorytmu HDBSCAN do wykrywania zorganizowanych kampanii ataków i izolacji szumu informacyjnego.
+   * Wykorzystanie algorytmu HDBSCAN oraz nieliniowej redukcji wymiarowości UMAP do wykrywania zorganizowanych kampanii ataków i izolacji szumu informacyjnego.
    * Implementacja autorskiej metody Hybrid Pseudo-labeling, łączącej topologię klastrów z analizą ekspercką (DPI) na poziomie pojedynczych wierszy.
 
 
 3. **`03_Random_Forest_Classifier.ipynb`**
    * Trening klasyfikatora lasu losowego na wypracowanym "Złotym Standardzie".
-   * Walidacja ROC/AUC oraz testy inferencji na danych testowych z progiem pewności (detekcja Zero-Day).
 
 
 4. **`04_XGBoost_Classifier.ipynb`**
    * Implementacja modelu gradient boostingu (XGBoost) i ocena jego skuteczności względem modelu Random Forest.
 
+### Uwaga: Do uruchomienia notatnika **`05_Model_Comparison.ipynb`** potrzbne są modele znajdujące się w katalogu *'modele'* w związku z ograniczeniami przestrzeni modele te zostaną poprawnie wygenerowane po uruchomieniu notatnika 03 i 04.
 
 5. **`05_Model_Comparison.ipynb`**
    * Ostateczne starcie modeli. Porównanie znaczenia cech sieciowych (Feature Importance) oraz analiza zjawiska overconfidence w detekcji nieznanych zagrożeń.
+   * Porównanie skuteczności modeli w Teście A (Dryf czasowy).
+   * Porównanie skuteczności modeli w Teście B (Dryf przestrzenny).
 
 ---
 

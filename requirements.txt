@@ -5,6 +5,7 @@ numpy
 # Uczenie Maszynowe i Metryki
 scikit-learn
 xgboost
+joblib
 
 # Redukcja wymiarowości i Klastrowanie
 umap-learn
@@ -13,3 +14,4 @@ hdbscan
 # Wizualizacja danych
 matplotlib
 seaborn
+scipy
